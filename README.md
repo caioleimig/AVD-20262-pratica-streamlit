@@ -1,109 +1,194 @@
-# AVD-20262-pratica-streamlit
 
-Repositório utilizado para aula prática relacionada a Streamlit na disciplina Análise e Visualização de Dados da Cesar School no período de 2026.2.
+# Delivery de comida: quem são os clientes e o que os faz voltar
 
-Repositório-modelo das Aulas 21, 22 e 23: construção de dois dashboards em Streamlit a partir da EDA desenvolvida em sala. O deploy dos dashboards ocorrerá via Streamlit Community Cloud e serão os seguintes:
+Dashboards interativos em **Streamlit** construídos a partir da minha análise exploratória (EDA) do [Online Food Ordering Dataset](https://www.kaggle.com/datasets/srisyra02/online-food-ordering-dataset): 285 clientes de um aplicativo de delivery em Bangalore, Índia.
 
-- Dashboard 1 = correlação + distribuição das variáveis quantitativas
-- Dashboard 2 = KPIs
+**Repositório GitHub:** [AVD-20262-pratica-streamlit](https://github.com/caioleimig/AVD-20262-pratica-streamlit)
 
-## Setup
+**Aplicação publicada:** [Acessar dashboards no Streamlit Community Cloud](https://strean-64kppgkqvbj94erj8jfv5h.streamlit.app/)
 
-Requer **Python 3.11 a 3.15**. Confira a sua versão antes de começar:
+Projeto desenvolvido para a disciplina **Análise e Visualização de Dados**, na CESAR School (2026.2), como parte das atividades das Aulas 21 a 23.
 
-| Sistema | Verificar versão |
-| --- | --- |
-| macOS / Linux | `python3 --version` |
-| Windows | `py --version` |
+**Aluno:** Caio Leimig Rodrigues da Silva
 
-### 1. Criar e ativar o ambiente virtual
+![Dashboard 2 com seleção cruzada na faixa etária 25-27](docs/img/dashboard2.png)
 
-O nome do comando do Python muda por sistema (em muitas máquinas `python` nem existe). Use a linha do seu sistema:
+## O que o app mostra
 
-| Sistema | Criar | Ativar |
-| --- | --- | --- |
-| macOS / Linux | `python3 -m venv .venv` | `source .venv/bin/activate` |
-| Windows (PowerShell) | `py -m venv .venv` | `.venv\Scripts\Activate.ps1` |
-| Windows (cmd) | `py -m venv .venv` | `.venv\Scripts\activate.bat` |
+O aplicativo possui duas abas:
 
-Se você tem várias versões instaladas, escolha uma compatível, por exemplo `python3.12 -m venv .venv` (macOS/Linux) ou `py -3.12 -m venv .venv` (Windows).
+| Aba | Pergunta | Conteúdo |
+|---|---|---|
+| **Dashboard 1 · Correlação e distribuição** | Como as variáveis quantitativas se relacionam e se distribuem? | Heatmap de correlação (Spearman, Pearson ou Kendall) com o par mais forte e o p-valor, histogramas por variável, sliders de intervalo e remoção de outliers pela regra do IQR. |
+| **Dashboard 2 · KPIs de satisfação** | Quem pediria novamente e quem está insatisfeito? | 4 KPIs (clientes, taxa de recompra, feedback positivo e idade média) com delta contra a base, além de 4 visualizações Altair. **Clicar em uma faixa etária filtra os KPIs e os gráficos** por meio de seleção cruzada. |
 
-Com o ambiente ativo, o terminal mostra `(.venv)` no início da linha. **A partir daqui os comandos são iguais em todos os sistemas**, porque dentro do venv `python` e `pip` sempre existem.
+### Principais achados
 
-### 2. Instalar, configurar a IA e rodar
+Resultados provenientes da análise exploratória e apresentados nos dashboards:
+
+- A taxa de recompra cai de aproximadamente 80–88% (até 24 anos) para 62–65% a partir dos 25 anos.
+- Empregados e autônomos apresentam a maior proporção de feedback negativo (Qui-quadrado: ocupação × feedback, p ≈ 0,011).
+- Idade e renda apresentam a correlação mais forte do conjunto (Spearman ≈ 0,57). A base é majoritariamente composta por estudantes sem renda.
+
+![Dashboard 1: correlação e distribuição](docs/img/dashboard1.png)
+
+## Tecnologias utilizadas
+
+- **Python 3.12** e **Streamlit 1.66**: desenvolvimento da aplicação, abas, sidebar, indicadores (`st.metric`) e cache (`@st.cache_data`).
+- **Altair**: construção dos gráficos e implementação da seleção cruzada com `on_select="rerun"`.
+- **pandas e SciPy**: tratamento dos dados, correlações e testes de significância estatística.
+- **Jupyter Notebook**: análise exploratória e pipeline de preparação dos dados.
+- **Streamlit Community Cloud**: publicação dos dashboards.
+
+## Estrutura do repositório
+
+```text
+├── app.py
+├── src/
+│   ├── data_loader.py
+│   ├── config.py
+│   └── graficos.py
+├── data/
+│   ├── raw/
+│   └── clean/
+│       └── dataset.csv
+├── notebooks/
+│   ├── eda.ipynb
+│   ├── eda-com-downloads.ipynb
+│   └── arquivo-eda-original.ipynb
+├── entregas/
+├── prompts/
+├── tests/
+│   └── test_app.py
+├── docs/
+│   └── img/
+├── .streamlit/
+│   └── config.toml
+├── .vscode/
+├── requirements.txt
+├── requirements-dev.txt
+├── README.md
+├── ROTEIRO.md
+└── ALTAIR-CROSSFILTER.md
+```
+
+### Principais diretórios e arquivos
+
+- `app.py`: aplicação Streamlit com os dois dashboards.
+- `src/data_loader.py`: leitura do dataset tratado, com `@st.cache_data`.
+- `src/config.py`: rótulos, ordens de categorias e cores.
+- `src/graficos.py`: funções responsáveis pela construção dos gráficos Altair.
+- `data/raw/`: armazenamento do dataset original, não versionado.
+- `data/clean/`: armazenamento do dataset tratado e versionado.
+- `notebooks/`: notebooks de análise exploratória e preparação dos dados.
+- `entregas/`: wireframes, justificativas e materiais das entregas acadêmicas.
+- `prompts/`: prompts utilizados e declaração de uso de inteligência artificial.
+- `tests/`: testes automatizados da aplicação.
+- `docs/img/`: imagens dos dashboards utilizadas na documentação.
+
+## Como executar localmente
+
+Requer **Python 3.11 a 3.15**.
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/caioleimig/AVD-20262-pratica-streamlit.git
+
+cd AVD-20262-pratica-streamlit
+```
+
+### 2. Criar e ativar o ambiente virtual
+
+```bash
+python -m venv .venv
+```
+
+No Windows (PowerShell):
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+No Linux ou macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+### 3. Instalar as dependências
 
 ```bash
 python -m pip install -r requirements.txt
+```
 
-# Skills de IA do Streamlit (ver seção "IA neste projeto")
+Para instalar também as dependências de desenvolvimento e utilizar os notebooks:
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
+O projeto também utiliza o comando abaixo para disponibilizar as instruções oficiais de desenvolvimento do Streamlit para ferramentas de IA:
+
+```bash
 streamlit skills --yes
+```
 
+### 4. Executar a aplicação
+
+```bash
 streamlit run app.py
 ```
 
-### Problemas comuns
-
-- **`python: command not found` / `python` não é reconhecido:** use `python3` (macOS/Linux) ou `py` (Windows) só para criar o venv; depois de ativado, `python` funciona.
-- **Linux (Debian/Ubuntu): `ensurepip is not available` ou `No module named venv`:** instale `sudo apt install python3-venv` (ou `python3.X-venv` para a sua versão).
-- **Windows: "a execução de scripts foi desabilitada" ao ativar no PowerShell:** rode uma vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, ou use o cmd.
-- **Python fora de 3.11–3.15:** instale uma versão compatível em [python.org](https://www.python.org/downloads/) e crie o venv com ela, como no exemplo acima.
-- **Apareceu `ModuleNotFoundError` ou `streamlit: command not found`:** o venv provavelmente não está ativo. Ative de novo e confira o `(.venv)` no prompt.
-- **Erro de certificado no `pip install` (macOS, Python do python.org):** rode `Install Certificates.command`, na pasta Python 3.X em Aplicativos.
-- **`DatasetNotFoundError` ao baixar o dataset no notebook (macOS, Python do python.org):** é o mesmo problema de certificado SSL (o `pandas` não consegue ler o CSV da UCI). Rode `Install Certificates.command` e reinicie o kernel. O notebook `eda-com-downloads.ipynb` já define `SSL_CERT_FILE` com o `certifi` como contorno.
-
-## Estrutura de dados: `data/raw` vs `data/clean`
-
-- `data/raw/`: o dataset **bruto**, como foi baixado. Nunca é editado à mão.
-- `data/clean/`: o dataset **já tratado**, exportado na última célula do notebook de EDA (ex.: `df.to_csv("data/clean/dataset.csv", index=False)`). O `app.py` lê **somente** desta pasta, via `src/data_loader.py`.
-
-### O que vai para o Git
-
-| Pasta | Versionada? | Por quê |
-| --- | --- | --- |
-| `data/raw/` | **Não** (só o `.gitkeep`) | O bruto pode ser grande ou ter dados sensíveis, e o app não o usa. |
-| `data/clean/` | **Sim** | O Streamlit Community Cloud faz deploy a partir do GitHub e só enxerga o que está no repositório. Sem o CSV tratado no repo, o app funciona na sua máquina e **quebra no deploy**. |
-
-### Antes de dar `git push` com o dado tratado
-
-- **O dado é público ou pode ser compartilhado?** Se não for claramente público, use um **repositório privado** (o Community Cloud permite conectar repositórios privados ao autorizar o GitHub; confirme na hora do deploy). Nesse caso, dê acesso de leitura ao professor (como colaborador ou pela organização).
-- **Dado sensível** (nomes, CPF, e-mail, telefone, localização exata etc.): remova ou anonimize na EDA, antes de exportar para `data/clean/`. Isso vale mesmo em repositório privado.
-- **Tamanho:** o GitHub rejeita arquivos acima de **100 MB**. Se o CSV tratado for grande, reduza colunas e linhas na EDA ou exporte em Parquet (`df.to_parquet(...)`, exige `pyarrow`).
-- **Lembre de commitar o arquivo:** confira com `git status` que `data/clean/dataset.csv` aparece como novo arquivo.
-
-## Passo a passo
-
-O passo a passo detalhado de cada aula (Aulas 21, 22 e 23), com pré-requisitos e objetivos, está em [ROTEIRO.md](ROTEIRO.md). Comece por ele depois do Setup.
-
-**Link do app (Aula 23):** _(preencher após o deploy)_
-
-## IA neste projeto
-
-Este projeto usa o **streamlit skills**: um conjunto de instruções (arquivos `SKILL.md`) que a ferramenta de IA lê para escrever código Streamlit seguindo boas práticas (estrutura de layout, cache, widgets, etc.).
-
-**Como instalar:** depois do `pip install -r requirements.txt`, rode na raiz do projeto:
+### 5. Executar os testes (opcional)
 
 ```bash
-streamlit skills        # interativo
-streamlit skills --yes  # sem confirmações
+python tests/test_app.py
 ```
 
-O comando cria *symlinks* para as skills que acompanham a sua instalação do Streamlit, então elas se atualizam sozinhas quando você atualiza o pacote. (A opção `--global` instala para todos os projetos, em vez de só este.)
+## Análise exploratória e preparação dos dados
 
-**Onde fica instalado:**
+O projeto utiliza três notebooks principais:
 
-- `.claude/skills/`: lido pelo Claude Code.
-- `.agents/skills/`: lido pelo Gemini CLI, que já encontra essa pasta sozinho.
+- `eda.ipynb`: análise exploratória original realizada anteriormente na disciplina.
+- `eda-com-downloads.ipynb`: pipeline de download, tratamento, análise e exportação do dataset.
+- `arquivo-eda-original.ipynb`: notebook de referência disponibilizado pela professora.
 
-Essas pastas **não são versionadas** (ver `.gitignore`): os symlinks apontam para o seu ambiente virtual e não funcionam em outra máquina. Cada pessoa roda `streamlit skills` no próprio clone.
+Para regenerar o dataset tratado, execute `notebooks/eda-com-downloads.ipynb` do início ao fim. O notebook baixa o CSV original para `data/raw/` e exporta a versão tratada para `data/clean/dataset.csv`.
 
-**Se você usa outra ferramenta** (ChatGPT, Copilot Chat, etc.): abra o `SKILL.md` correspondente em `.agents/skills/` e cole o conteúdo manualmente no início do chat, antes do seu pedido.
+## Dados: `data/raw/` e `data/clean/`
 
-O uso de IA deve ser declarado conforme a seção abaixo.
+| Pasta | Versionada? | Conteúdo |
+|---|---|---|
+| `data/raw/` | Não (somente `.gitkeep`) | CSV original do Kaggle, com 388 linhas. |
+| `data/clean/` | Sim | Dataset tratado, com 285 linhas. |
 
-## Pasta `prompts/`
+O tratamento incluiu:
 
-A pasta [prompts/](prompts) guarda só o que é sobre **uso de IA**: o template de prompt para transformar o rascunho de layout em esqueleto de código e a **Declaração de Uso de IA** exigida pelo Plano de Ensino. Veja [prompts/README.md](prompts/README.md).
+- Remoção de registros duplicados.
+- Exclusão da coluna redundante `Unnamed: 13`.
+- Limpeza de espaços extras.
+- Tradução de categorias para português.
+- Criação das variáveis `faixa_etaria`, `renda_nivel` e `escolaridade_nivel` (ordinais de 0 a 4).
+- Remoção das colunas `Pin code`, `latitude` e `longitude`.
 
-## Pasta `entregas/`
+O dataset é público e disponibilizado no Kaggle. Não contém nomes, documentos ou contatos pessoais. O CSV original traz latitude e longitude (centroides de áreas de CEP, não endereços); mesmo assim, essas coordenadas foram removidas do dataset tratado por precaução, já que a aplicação não as utiliza nem apresenta mapas.
 
-A pasta [entregas/](entregas) guarda os artefatos de entrega que não são sobre IA: os rascunhos de layout de cada dashboard (`.jpg` ou `.png`) e a justificativa das métricas do Dashboard 2. Veja [entregas/README.md](entregas/README.md) para o detalhe de cada arquivo e o checklist por aula. Não coloque esses arquivos no `.gitignore`.
+**Sobre a variável `Output`:** o dataset não documenta formalmente essa coluna. Neste projeto, seguimos a interpretação mais comum de que `Yes` indica que o cliente pediria novamente pelo aplicativo, representada pela variável `pede_novamente` no dataset tratado.
+
+## Entregas da atividade
+
+- **Wireframes dos dashboards:**
+  - [Wireframe do Dashboard 1](entregas/wireframe-dashboard1.png)
+  - [Wireframe do Dashboard 2](entregas/wireframe-dashboard2.png)
+- **Justificativa das métricas:** [justificativa-metricas.md](entregas/justificativa-metricas.md)
+- **Declaração de uso de IA:** [declaracao-uso-ia.md](prompts/declaracao-uso-ia.md)
+- **Roteiro das aulas:** [ROTEIRO.md](ROTEIRO.md)
+
+## Utilização de inteligência artificial
+
+O desenvolvimento contou com apoio de ferramentas de inteligência artificial, incluindo o uso do **Streamlit Skills**, conjunto de instruções que orienta ferramentas de IA na utilização da API atual do Streamlit.
+
+O comando `streamlit skills --yes` cria as pastas `.claude/skills/` (Claude Code) e `.agents/skills/` (Gemini CLI) como links simbólicos para o ambiente virtual. Por esse motivo, essas pastas não são versionadas: cada pessoa deve executar o comando no próprio ambiente.
+
+O uso de inteligência artificial está documentado em [prompts/declaracao-uso-ia.md](prompts/declaracao-uso-ia.md). Os prompts utilizados durante o desenvolvimento estão disponíveis no diretório [prompts/](prompts/).

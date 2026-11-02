@@ -5,7 +5,7 @@ Dashboards interativos em **Streamlit** construídos a partir da minha análise 
 
 **Repositório GitHub:** [AVD-20262-pratica-streamlit](https://github.com/caioleimig/AVD-20262-pratica-streamlit)
 
-**Aplicação publicada:** [Acessar dashboards no Streamlit Community Cloud](https://strean-64kppgkqvbj94erj8jfv5h.streamlit.app/)
+**Aplicação publicada:** [Acessar dashboards no Streamlit Community Cloud](https://avd-delivery-caioleimig.streamlit.app/)
 
 Projeto desenvolvido para a disciplina **Análise e Visualização de Dados**, na CESAR School (2026.2), como parte das atividades das Aulas 21 a 23.
 

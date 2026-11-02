@@ -92,6 +92,6 @@ Correções feitas nesta revisão:
 
 ## 5. Deploy
 
-- App publicado: <https://strean-64kppgkqvbj94erj8jfv5h.streamlit.app/>
+- App publicado: <https://avd-delivery-caioleimig.streamlit.app/>
 - `requirements.txt` exige `streamlit>=1.66`, porque o app usa parâmetros que não existem em versões anteriores (`required` no `segmented_control`, `alt` nos gráficos e tabelas).
 - [ ] Abrir o link numa janela anônima e confirmar que o app carrega sem pedir login (acesso público).

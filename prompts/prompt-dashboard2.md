@@ -1,19 +1,21 @@
 
 # Prompt de desenvolvimento: Dashboard 2 — KPIs (Aulas 22 e 23)
 
+> **Resumo reconstruído, não transcrição literal.** Reescrevi este arquivo depois do uso, para resumir o que pedi à IA (Uso nº 5 da declaração assinada, [DECLARACAO_IA.pdf](DECLARACAO_IA.pdf)). Na prática, as quatro métricas foram escolhidas em colaboração com a IA, e a primeira versão da justificativa foi redigida por ela (Uso nº 3).
+
 ## Contexto
 
 Dando continuidade ao projeto desenvolvido para a disciplina de Análise e Visualização de Dados, preciso implementar o segundo dashboard na mesma aplicação Streamlit, em uma nova aba (`st.tabs`).
 
 A proposta deste dashboard é apresentar indicadores relevantes para a equipe de produto e marketing de um aplicativo de delivery, permitindo uma análise mais direta do comportamento e da satisfação dos clientes.
 
-O planejamento visual e analítico já foi realizado por mim, com base na EDA desenvolvida na Aula 11. Preciso agora de apoio para transformar esse planejamento em componentes funcionais no Streamlit.
+A organização geral do layout foi definida por mim, com base na EDA desenvolvida na Aula 11. Preciso agora de apoio para transformar esse planejamento em componentes funcionais no Streamlit.
 
 ## Materiais e definições
 
-- **Layout:** rascunho do Dashboard 2 elaborado por mim (`entregas/rascunho-dashboard2.png`).
+- **Layout:** wireframe do Dashboard 2 (`entregas/wireframe-dashboard2.png`). Defini a organização geral, e a IA desenhou a imagem (Uso nº 2).
 - **Análise:** resultados da EDA disponíveis em `notebooks/eda-com-downloads.ipynb`, especialmente na seção 5.
-- **Métricas:** quatro indicadores previamente selecionados e justificados por mim em `entregas/justificativa-metricas.md`:
+- **Métricas:** quatro indicadores selecionados em discussão com a IA e justificados em `entregas/justificativa-metricas.md` (primeira versão redigida pela IA e revisada por mim):
   - Clientes no recorte;
   - Taxa de recompra;
   - Feedback positivo;

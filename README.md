@@ -28,7 +28,8 @@ Resultados provenientes da análise exploratória e apresentados nos dashboards:
 
 - A taxa de recompra cai de aproximadamente 80–88% (até 24 anos) para 62–65% a partir dos 25 anos.
 - Empregados e autônomos apresentam a maior proporção de feedback negativo (Qui-quadrado: ocupação × feedback, p ≈ 0,011).
-- Idade e renda apresentam a correlação mais forte do conjunto (Spearman ≈ 0,57). A base é majoritariamente composta por estudantes sem renda.
+- Idade e renda formam o par com a correlação mais alta do conjunto (Spearman ≈ 0,57, moderada). Cerca de metade da base é de estudantes (144 de 285), e 122 deles não têm renda.
+- Os resultados mostram associações entre as variáveis, não relações de causa e efeito. A amostra é de um único app em uma cidade (285 clientes).
 
 ![Dashboard 1: correlação e distribuição](docs/img/dashboard1.png)
 
@@ -182,7 +183,8 @@ O dataset é público e disponibilizado no Kaggle. Não contém nomes, documento
   - [Wireframe do Dashboard 1](entregas/wireframe-dashboard1.png)
   - [Wireframe do Dashboard 2](entregas/wireframe-dashboard2.png)
 - **Justificativa das métricas:** [justificativa-metricas.md](entregas/justificativa-metricas.md)
-- **Declaração de uso de IA:** [declaracao-uso-ia.md](prompts/declaracao-uso-ia.md)
+- **Evidências de testes e validação:** [docs/testes.md](docs/testes.md)
+- **Declaração de uso de IA (assinada):** [DECLARACAO_IA.pdf](prompts/DECLARACAO_IA.pdf) · resumo em [declaracao-uso-ia.md](prompts/declaracao-uso-ia.md)
 - **Roteiro das aulas:** [ROTEIRO.md](ROTEIRO.md)
 
 ## Utilização de inteligência artificial
@@ -191,4 +193,4 @@ O desenvolvimento contou com apoio de ferramentas de inteligência artificial, i
 
 O comando `streamlit skills --yes` cria as pastas `.claude/skills/` (Claude Code) e `.agents/skills/` (Gemini CLI) como links simbólicos para o ambiente virtual. Por esse motivo, essas pastas não são versionadas: cada pessoa deve executar o comando no próprio ambiente.
 
-O uso de inteligência artificial está documentado em [prompts/declaracao-uso-ia.md](prompts/declaracao-uso-ia.md). Os prompts utilizados durante o desenvolvimento estão disponíveis no diretório [prompts/](prompts/).
+O uso de inteligência artificial está documentado na declaração assinada [prompts/DECLARACAO_IA.pdf](prompts/DECLARACAO_IA.pdf) (resumo em [prompts/declaracao-uso-ia.md](prompts/declaracao-uso-ia.md)). No Dashboard 2, as quatro métricas foram escolhidas em colaboração com a IA, e a primeira versão da justificativa foi redigida por ela. Os registros dos pedidos feitos à IA, reconstruídos depois do uso (não são transcrições literais), estão em [prompts/](prompts/).

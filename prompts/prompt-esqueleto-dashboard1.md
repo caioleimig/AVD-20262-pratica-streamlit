@@ -1,19 +1,21 @@
 
 # Prompt de desenvolvimento: Dashboard 1 — Correlação e distribuição (Aula 21)
 
+> **Resumo reconstruído, não transcrição literal.** Reescrevi este arquivo depois do uso, para resumir o que pedi à IA (Uso nº 5 da declaração assinada, [DECLARACAO_IA.pdf](DECLARACAO_IA.pdf)). O pedido real, com os slides das aulas anexados, foi: "me ajude a fazer essa atividade com base nos requisitos apresentados. me ajude com esqueletos .py, gráficos, design e apoio com pandas" (Uso nº 1).
+
 ## Contexto
 
 Sou aluno da disciplina de Análise e Visualização de Dados da CESAR School (2026.2) e estou desenvolvendo dois dashboards em Streamlit a partir da minha análise exploratória (EDA) da Aula 11.
 
 O conjunto de dados utilizado foi o **Online Food Ordering Dataset**, disponível no Kaggle, com informações de 285 clientes de um aplicativo de delivery em Bangalore, após a remoção de duplicatas.
 
-O primeiro dashboard tem como objetivo explorar a correlação e a distribuição das variáveis quantitativas e ordinais. Antes da implementação, elaborei um rascunho à mão com a organização dos elementos, os filtros e os gráficos que gostaria de apresentar.
+O primeiro dashboard tem como objetivo explorar a correlação e a distribuição das variáveis quantitativas e ordinais. Defini a organização dos elementos, dos filtros e dos gráficos que gostaria de apresentar, e o wireframe com esse layout foi desenhado com apoio da IA.
 
 A estrutura do projeto segue o modelo trabalhado na disciplina, com `app.py` na raiz, `src/data_loader.py` para leitura dos dados em `data/clean/dataset.csv` e diretórios separados para notebooks, entregas e prompts.
 
 ## Materiais e definições
 
-- **Layout:** rascunho do Dashboard 1 elaborado por mim (`entregas/rascunho-dashboard1.png`).
+- **Layout:** wireframe do Dashboard 1 (`entregas/wireframe-dashboard1.png`). Defini a organização geral, e a IA desenhou a imagem (Uso nº 2).
 - **Variáveis quantitativas e ordinais:** `idade`, `tamanho_familia`, `renda_nivel` (0–4), `escolaridade_nivel` (0–4), `latitude` e `longitude`.
 - **Variável de classificação:** `pede_novamente` (Sim/Não).
 - **Perguntas que orientam a análise:**

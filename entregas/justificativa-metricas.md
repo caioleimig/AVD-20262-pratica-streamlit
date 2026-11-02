@@ -1,6 +1,6 @@
 # Justificativa das métricas — Dashboard 2
 
-> **Autoria:** As métricas, os critérios de seleção, as justificativas, a interpretação dos resultados da EDA e a definição dos visuais deste dashboard foram elaborados por mim. A escolha do que deveria ser apresentado no Dashboard 2 partiu da minha própria análise do dataset e dos resultados obtidos durante a EDA. A IA não escolheu métricas, não definiu os critérios de análise e não elaborou as justificativas. Seu auxílio ficou restrito à revisão de ortografia e clareza textual deste documento, conforme registrado em `prompts/declaracao-uso-ia.md`.
+> **Autoria e uso de IA:** As quatro métricas deste dashboard (clientes no recorte, taxa de recompra, feedback positivo e idade média) foram escolhidas **em colaboração com a IA** (Claude Code): discuti com ela quais indicadores poderiam responder à pergunta do Dashboard 2 e ajustamos juntos a seleção final. A **primeira versão desta justificativa também foi redigida pela IA**. Depois, revisei e reescrevi o texto com minhas palavras, com base na minha EDA e nos objetivos do projeto, e conferi os valores citados com os dados tratados. Esse uso está registrado como fora do permitido no **Uso nº 3** da declaração assinada ([`prompts/DECLARACAO_IA.pdf`](../prompts/DECLARACAO_IA.pdf)).
 
 **Dataset:** Online Food Ordering Dataset (Kaggle), com 285 clientes após a remoção de duplicatas (ver `notebooks/eda.ipynb` e `notebooks/eda-com-downloads.ipynb`).
 
@@ -72,4 +72,4 @@
 
 ## Considerações sobre a elaboração
 
-A seleção das quatro métricas e dos visuais complementares foi resultado da minha própria análise exploratória e das perguntas de negócio que defini para o Dashboard 2. Também fui responsável por estabelecer o público-alvo, determinar quais comparações seriam relevantes e decidir como os filtros e as interações deveriam funcionar. O auxílio de IA na implementação do dashboard não substituiu essas decisões analíticas: a ferramenta foi utilizada como apoio técnico para transformar as escolhas já realizadas em componentes funcionais no Streamlit.
+A seleção das quatro métricas foi feita em colaboração com a IA, e a primeira versão desta justificativa foi redigida por ela, como descrito na nota de autoria no início do documento. Depois, revisei o texto com base na minha análise exploratória e conferi os números citados (76,1% de recompra, 81,1% de feedback positivo e 24,7 anos de idade média na base completa) com os dados tratados. A IA também implementou os KPIs, os gráficos, os filtros e a seleção cruzada no Streamlit. Defini que o delta da idade média aparece em cinza. O registro completo está nos Usos nº 2 e 3 da declaração assinada ([`prompts/DECLARACAO_IA.pdf`](../prompts/DECLARACAO_IA.pdf)).

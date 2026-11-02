@@ -37,7 +37,8 @@ def delta(diferenca, unidade, colorido=True):
 
 
 def forca(r):
-    return next(nome for limite, nome in [(0.1, "desprezível"), (0.3, "fraca"), (0.5, "moderada"), (0.7, "forte"), (2, "muito forte")] if abs(r) < limite)
+    # mesma escala do notebook de referência da disciplina: |r| < 0,3 fraca, 0,3–0,7 moderada, > 0,7 forte
+    return next(nome for limite, nome in [(0.1, "desprezível"), (0.3, "fraca"), (0.7, "moderada"), (2, "forte")] if abs(r) < limite)
 
 
 def limpar(prefixo):
@@ -140,7 +141,7 @@ with aba1:
             st.dataframe(resumo.rename(index=rotulo).round(2), alt="Estatísticas descritivas das variáveis selecionadas")
         st.dataframe(df_d1, hide_index=True, alt="Tabela com os clientes dentro dos filtros")
 
-# [IA] Claude Code + streamlit skills – kpis e gráficos com seleção cruzada (dashboard 2), métricas definidas por mim
+# [IA] Claude Code + streamlit skills – kpis e gráficos com seleção cruzada (dashboard 2); as quatro métricas foram escolhidas em colaboração com a IA (Uso nº 3 da declaração)
 with aba2:
     with st.container(border=True):
         f1, f2, f3, f4 = st.columns([1, 1.6, 1.2, 1.3], vertical_alignment="bottom")

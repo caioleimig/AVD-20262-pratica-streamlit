@@ -1,55 +1,30 @@
 
-# Declaração de Uso de IA
+# Declaração de Uso de IA (resumo)
 
 **Nome:** Caio Leimig Rodrigues da Silva  
-**Data:** 29/10/2026 (Aulas 21, 22 e 23: dashboards em Streamlit)
+**Data:** 02/11/2026 (Aulas 21, 22 e 23: dashboards em Streamlit)
+
+> A declaração oficial, preenchida e assinada (gov.br), é [`DECLARACAO_IA.pdf`](DECLARACAO_IA.pdf). Este arquivo é só um resumo dela. Se houver qualquer diferença, vale o PDF.
 
 ## Ferramentas utilizadas
 
-- **Claude Code:** utilizado no VS Code, com o modelo Claude Opus 5.5 e as skills do Streamlit (`streamlit skills`), como apoio ao desenvolvimento técnico da aplicação.
-- **Claude (chat):** utilizado durante a EDA da Aula 11, conforme declarado no notebook correspondente.
+- **Claude Code** (extensão do VS Code, modelo Claude Opus 5.5): notebook de pipeline, esqueleto do `app.py`, Dashboards 1 e 2, wireframes, testes, README, otimização do código e revisões (Usos nº 1 a 5).
+- **Skill oficial do Streamlit** (`streamlit skills --yes`): usada pelo Claude Code para escrever o código do app no padrão atual da biblioteca.
+- **Claude (chat, claude.ai)**, modelo Claude Opus 5.5: EDA da Aula 11 (`notebooks/eda.ipynb`) e, em 01–02/11, revisão das regras do projeto e ajustes de texto em `entregas/` (Usos nº 5 e 6).
 
-## Prompt inicial utilizado
+## Resumo dos usos
 
-O pedido inicial foi realizado com os slides das três aulas sobre Streamlit (partes 1, 2 e 3) anexados:
+| Nº | Data | Parte | O que a IA fez |
+|---|---|---|---|
+| 1 | 29–30/10 | Estrutura do repositório, pipeline, `app.py` (esqueleto e Dashboard 1), `src/`, `.streamlit/config.toml` | Pedi apoio em boa parte da atividade ("me ajude com esqueletos .py, gráficos, design e apoio com pandas"). Aproveitei a estrutura, o pipeline, o cache, a sidebar, o heatmap e os histogramas. Pedi Spearman para as variáveis ordinais, troquei a paleta para laranja e azul e rejeitei o mapa com a localização dos clientes. |
+| 2 | 31/10 | `entregas/wireframe-dashboard1.png` e `wireframe-dashboard2.png` | **Fora do previsto:** os dois rascunhos entregues foram desenhados pela IA. Defini a organização geral (separação das telas, posição dos filtros, disposição dos indicadores), e a IA fez a elaboração visual. |
+| 3 | 31/10 | Dashboard 2 (`app.py`, `src/graficos.py`) e `entregas/justificativa-metricas.md` | **Fora do permitido:** as quatro métricas (clientes no recorte, taxa de recompra, feedback positivo e idade média) foram escolhidas em colaboração com a IA, e a primeira versão da justificativa foi redigida por ela. Depois revisei e reescrevi o texto com minhas palavras. A IA implementou os KPIs, os gráficos, os filtros e a seleção cruzada. Defini que o delta da idade média aparece em cinza. |
+| 4 | 30/10 | Dado tratado, pipeline, `src/`, `app.py`, testes, `requirements*.txt`, READMEs, marcações `# [IA]` | Otimização do código, depuração e revisão de textos: remoção de latitude, longitude e Pin code, separação das dependências, simplificação do código e marcações `# [IA]`. |
+| 5 | 01–02/11 | Arquivos de `prompts/`, nota de autoria da justificativa, `entregas/README.md`, declaração | Revisão de textos e conferência das regras. Os arquivos `prompt-esqueleto-dashboard1.md` e `prompt-dashboard2.md` são **resumos reconstruídos** depois do uso, não transcrições literais dos prompts. |
+| 6 | 01/11 | `notebooks/eda.ipynb` (EDA da Aula 11) | Estrutura do notebook e código de cada etapa (descritiva, Shapiro-Wilk, IQR, testes de grupos, Qui-quadrado, fairness, correlograma). As decisões de interpretação e as respostas às perguntas de discussão são minhas. |
 
-> "Com base nesses 3 PDFs, me ajude a fazer essa atividade montando a estrutura de repositório necessária."
+## Validação
 
-Posteriormente, enviei minha EDA da Aula 11 (Online Food Delivery) como referência para o desenvolvimento dos dashboards.
-
-Os prompts estruturados, contendo contexto, entradas, restrições e formato esperado para cada etapa, estão disponíveis nos seguintes arquivos:
-
-- [`prompt-esqueleto-dashboard1.md`](prompt-esqueleto-dashboard1.md)
-- [`prompt-dashboard2.md`](prompt-dashboard2.md)
-
-## Para que a IA foi utilizada
-
-- Auxílio na estruturação do pipeline de dados (`notebooks/eda-com-downloads.ipynb`), do arquivo `app.py`, dos módulos em `src/` e dos testes.
-- Implementação técnica dos componentes e das métricas do Dashboard 2 no Streamlit. **A escolha das quatro métricas, os critérios de seleção, as justificativas e a interpretação dos resultados da EDA foram realizados por mim**, com base na minha própria análise do conjunto de dados.
-- Revisão de ortografia e clareza textual do arquivo `entregas/justificativa-metricas.md`, cujo conteúdo e decisões analíticas foram elaborados por mim. A IA não escolheu, propôs ou justificou as métricas.
-- Digitalização dos layouts em wireframes (`entregas/wireframe-dashboard*.png`). Os rascunhos originais à mão (`entregas/rascunho-dashboard*`) foram elaborados por mim, sem utilização de IA.
-- Apoio na organização do README e na estruturação do repositório.
-
-## O que foi aceito, modificado ou rejeitado
-
-- **Aceito:** código responsável por transformar meus rascunhos em interfaces funcionais, incluindo as duas abas, os filtros na barra lateral do Dashboard 1, os filtros no topo do Dashboard 2 e a implementação das quatro métricas previamente definidas por mim. Também foram aproveitados o uso de cache e os caminhos relativos.
-- **Modificado:** solicitei a inclusão de renda e escolaridade como variáveis ordinais, utilizando a correlação de Spearman; substituí a paleta de cores por laranja e azul, buscando melhorar a legibilidade para pessoas com daltonismo; e solicitei correções na formatação dos deltas dos KPIs.
-- **Rejeitado:** a implementação de um mapa com a localização dos clientes, pois latitude, longitude e `Pin code` foram removidos do conjunto de dados tratado por precaução. Também rejeitei a reprodução do modelo de Dashboard 1 presente no repositório de referência, optando pelo layout que havia planejado nos meus próprios rascunhos.
-
-## Validação realizada
-
-Conferi os resultados apresentados pela aplicação com os dados e resultados da minha EDA, verificando, entre outros valores, a existência de 285 linhas no conjunto de dados tratado e a proporção de 81,1% de feedback positivo.
-
-Também executei os testes de borda por meio do comando:
-
-```bash
-python tests/test_app.py
-```
-
-A validação teve como objetivo verificar a consistência dos resultados apresentados e o funcionamento dos componentes implementados.
-
-## Delimitação da autoria das decisões analíticas
-
-As decisões relacionadas à análise dos dados foram realizadas por mim. Isso inclui a definição do público-alvo do Dashboard 2, a pergunta de negócio que orienta sua construção, a seleção das quatro métricas, a escolha dos gráficos complementares, os critérios de segmentação e as justificativas apresentadas em `entregas/justificativa-metricas.md`.
-
-A IA foi utilizada como ferramenta de apoio técnico para implementar essas decisões no Streamlit, além de auxiliar na organização e revisão de partes do projeto. **Não utilizei IA para escolher as métricas, interpretar os resultados da EDA ou elaborar as justificativas analíticas do Dashboard 2.**
+- Conferi os valores com a minha EDA: 285 linhas no dado tratado, Spearman idade × renda ≈ 0,57, recompra de 76,1%, feedback positivo de 81,1% e idade média de 24,7 anos.
+- Testei a seleção cruzada clicando nas faixas etárias e rodei os testes de borda com `python tests/test_app.py`.
+- Comparei o app final com os wireframes.

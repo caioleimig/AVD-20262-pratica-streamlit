@@ -1,6 +1,6 @@
 # entregas/
 
-Artefatos de entrega que não são sobre uso de IA (isso fica em [`prompts/`](../prompts)). Cada arquivo tem uma função específica na correção. Os rascunhos podem ser feitos à mão ou digitalizados; neste projeto, os dois foram entregues na versão digitalizada, em `.png`. Tudo desta pasta, incluindo as entregas do Dashboard 2 (rascunho + justificativa), deve estar pronto até a Aula 22; a Aula 23 é para finalizar a implementação, fazer o deploy e os ajustes finais.
+Artefatos de entrega que não são sobre uso de IA (isso fica em [`prompts/`](../prompts)). Cada arquivo tem uma função específica na correção. Os rascunhos podem ser feitos à mão ou digitalizados; neste projeto, os dois foram entregues na versão digitalizada, em `.png`. **Os dois wireframes foram desenhados pela IA (Claude Code)** a partir da organização geral que defini (Uso nº 2 da declaração assinada, [`prompts/DECLARACAO_IA.pdf`](../prompts/DECLARACAO_IA.pdf)). A escolha das métricas e a primeira versão de `justificativa-metricas.md` também tiveram participação da IA (Uso nº 3). Tudo desta pasta, incluindo as entregas do Dashboard 2 (rascunho + justificativa), deve estar pronto até a Aula 22; a Aula 23 é para finalizar a implementação, fazer o deploy e os ajustes finais.
 
 | Arquivo                      | Quando    | O que é                                                                                      |
 |-------------------------------|-----------|-----------------------------------------------------------------------------------------------|

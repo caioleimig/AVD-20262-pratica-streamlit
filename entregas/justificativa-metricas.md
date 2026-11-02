@@ -1,4 +1,3 @@
-
 # Justificativa das métricas — Dashboard 2
 
 > **Autoria:** As métricas, os critérios de seleção, as justificativas, a interpretação dos resultados da EDA e a definição dos visuais deste dashboard foram elaborados por mim. A escolha do que deveria ser apresentado no Dashboard 2 partiu da minha própria análise do dataset e dos resultados obtidos durante a EDA. A IA não escolheu métricas, não definiu os critérios de análise e não elaborou as justificativas. Seu auxílio ficou restrito à revisão de ortografia e clareza textual deste documento, conforme registrado em `prompts/declaracao-uso-ia.md`.
@@ -9,7 +8,7 @@
 
 **Pergunta que o dashboard responde:** *Quem são os clientes que pediriam novamente e quem está insatisfeito?*
 
-**Definição dos widgets:** Os filtros e mecanismos de interação foram planejados por mim antes da elaboração do rascunho `rascunho-dashboard2.png`. A proposta foi permitir que o usuário explore diferentes segmentos e observe como as métricas se comportam em cada recorte.
+**Definição dos widgets:** Os filtros e mecanismos de interação foram planejados por mim antes da elaboração do rascunho `wireframe-dashboard2.png`. A proposta foi permitir que o usuário explore diferentes segmentos e observe como as métricas se comportam em cada recorte.
 
 - Barra de filtros no topo: gênero (`st.pills`), ocupação (`st.multiselect`), tipo de cliente (`st.pills`) e idade (`st.slider`).
 - Clique no gráfico de faixa etária (seleção Altair com `on_select="rerun"`): permite selecionar uma ou mais faixas etárias e aplicar esse recorte aos KPIs e aos outros três gráficos.
